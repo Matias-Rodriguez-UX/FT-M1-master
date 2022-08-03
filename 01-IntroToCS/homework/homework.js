@@ -3,7 +3,7 @@
 function BinarioADecimal(num) {
   let dec = 0;
   let largo = (num.length-1)
-  for (let i = 0 ; i < num.length ; i++){
+  for (let i = 0 ; i <= largo ; i++){
     if ( num[i] == 1){
       dec = (Math.pow(2, (largo-i)))  + dec
     } 
