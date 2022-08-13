@@ -1,5 +1,8 @@
 'use strict'
 
+const { size } = require("@11ty/eleventy/src/TemplateCache")
+const Eleventy = require("eleventy-plugin-toc")
+
 /*
 Definir las funciones recursivas nFactorial y nFibonacci.
 
@@ -15,9 +18,38 @@ Como ejercicio adicional y completamente opcional, al terminar de resolver este 
 */
 
 function nFactorial(n) {
+  let res = 1
+  if (n>0){
+    return n * nFactorial(n-1)
+  }else {return res}
 }
+//	si n >1 Entonces
+//		Para i = 1 Hasta n-1 Hacer
+//			resultado = ant1 + ant2
+//			Escribir resultado
+//			ant1 = ant2
+//			ant2 = resultado
+//		FinPara
 
 function nFibonacci(n) {
+  if (n >= 2){
+    return nFibonacci(n-1) + nFibonacci(n-2)
+  } else {
+    return n
+  }
+  // let result = 0
+  // let n1=0
+  // let n2=1
+  // if (n>=2){
+  //   for (let i = 2 ; i<=n; i++){
+  //     result = n1 + n2
+  //     n1 = n2
+  //     n2 = result
+  //   }
+  //   return result
+  // }else {
+  //   return n
+  // }
 }
 
 /*
@@ -30,8 +62,56 @@ Pueden utilizar class o función constructora.
 */
 
 function Queue() {
+  this.arr = [];
+//   class Node {
+//     constructor(valor){
+//       this.valor = valor;
+//       this.next = null;
+//     }
+//   }
 
+//   class Cola {
+//     constructor(){
+//       this.first = null;
+//       this.last = null;
+//       this.large = 0;
+//     }
+//     enqueue(val){
+//       const nodo = new Node(val)
+//       if (this.large>0){
+//         this.first = nodo;
+//         this.last = nodo;
+//       }else if(this.large >= 1){
+//         this.last = nodo;
+//         this.first.next = nodo;
+//       }
+//       this.large++
+//   };
+//   dequeue(){
+//     if (this.large>0){
+//       let current = this.first
+//       this.first = this.first.next;
+//       return `Eliminado ${current}`
+//        }else if(this.large = 0){
+//       return "Nada para eliminar"
+//     }
+//     this.large--
+// };
+//   size(){
+//     return this.large
+//   };
+//   }
 }
+Queue.prototype.enqueue = function(valor){
+  this.arr.push(valor)
+}
+Queue.prototype.dequeue = function(){
+  return this.arr.shift()
+}
+Queue.prototype.size = function(){
+  return this.arr.length
+}
+
 
 // No modifiquen nada debajo de esta linea
 // --------------------------------
