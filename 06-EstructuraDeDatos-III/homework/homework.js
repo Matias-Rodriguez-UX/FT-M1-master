@@ -43,28 +43,22 @@ BinarySearchTree.prototype.insert = function(value){
   }
 }
 BinarySearchTree.prototype.contains = function(value){
-  // let current = this;
-  // let exist = false;
-  // while(!exist && current){
-  //   if (value< current.value){
-  //     current = current.left
-  //   }else if (value> current.value){
-  //     current = current.right
-  //   } else{
-  //     exist = true
-  //   }
-  // }
-  // return exist
-  if (this.value === value) return true;
-  if( value> this.value){
-    if(this.right === null) return false;
-    else return this.right.contains(value);
+  let current = this;
+  let exist = false;
+  while(!exist && current){
+    if (value< current.value){
+      if(current.left === null) return exist = false
+      current = current.left
+    }else if (value> current.value){
+      if(current.right === null) return exist = false
+      current = current.right
+    }else{
+    exist = true
   }
-  if( value< this.value){
-    if(this.left === null) return false;
-    else return this.left.contains(value);
-  }
+ }
+ return exist
 }
+
 BinarySearchTree.prototype.depthFirstForEach = function(func, type){
   if(type === "pre-order"){ 
     func(this.value);
